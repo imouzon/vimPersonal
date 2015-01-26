@@ -25,17 +25,17 @@ let loaded_vimPersonal = 1
 " SECTION: Headers and Timestamps
 "============================================================
 "filetypes that have headers
-source ~/.vim/bundle/vimPersonal/plugin/HeadersAndTimestamps.vim
+"source ~/.vim/bundle/vimPersonal/plugin/HeadersAndTimestamps.vim
 
 
 " SECTION: python 
 "============================================================
-source ~/.vim/bundle/vimPersonal/plugin/vimpy.vim
+"source ~/.vim/bundle/vimPersonal/plugin/vimpy.vim
 
 
 " SECTION: Impact server
 "============================================================
-source ~/.vim/bundle/vimPersonal/plugin/R_impact_server.vim
+"source ~/.vim/bundle/vimPersonal/plugin/R_impact_server.vim
 
 
 " SECTION: CSV work
@@ -43,16 +43,16 @@ source ~/.vim/bundle/vimPersonal/plugin/R_impact_server.vim
 " :Csv 1    " highlight first column
 " :Csv 12   " highlight twelfth column
 " :Csv 0    " switch off highlight
-source ~/.vim/bundle/vimPersonal/plugin/vimCSV.vim
+"source ~/.vim/bundle/vimPersonal/plugin/vimCSV.vim
 
 
 " SECTION: R integration
 "============================================================
-source ~/.vim/bundle/vimPersonal/plugin/Rintegration.vim
+"source ~/.vim/bundle/vimPersonal/plugin/Rintegration.vim
 
 " SECTION: vim color functions
 "============================================================
-source ~/.vim/bundle/vimPersonal/plugin/vim_color_functions.vim
+"source ~/.vim/bundle/vimPersonal/plugin/vim_color_functions.vim
 
 
 " SECTION: Change directory
@@ -65,7 +65,7 @@ source ~/.vim/bundle/vimPersonal/plugin/vim_color_functions.vim
 command! CD cd %:p:h
 
 " SECTION: Create course directory
-source ~/.vim/bundle/vimPersonal/plugin/CreateCourseDirectory.func.vim
+"source ~/.vim/bundle/vimPersonal/plugin/CreateCourseDirectory.func.vim
 
 "Transpose buffer
 function! s:transpose()
