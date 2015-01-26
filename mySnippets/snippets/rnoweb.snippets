@@ -1,0 +1,535 @@
+#-- Some sippets to help with rnw files
+snippet rch
+	%-- $1: R code (Code in Document)
+	<<${1:Name}, echo=${2:TRUE}, cache=TRUE, include = TRUE>>=
+	   ${3}
+	@
+
+snippet pch
+	%-- $1: R plot (results in document)
+	<<${1:Name}, fig.width=${2:5}, fig.height=${3:5}, out.width='${4:.5}\\maxwidth', echo=${6:TRUE}>>=
+	   ${7}
+	@
+
+snippet ach
+	%-- $1: R animations (results in document)
+	<<${1:Name}, fig.width=${2}, fig.height=${3}, out.width='${4}\\maxwidth', fig.show='animate', interval=${6:.1}, echo=${7:TRUE}, crop=TRUE>>=
+	   ${8}
+	@
+
+snippet fch
+	%-- $1: R figure (code in document - set include=FALSE to remove)
+	\Sexpr{fig.cap = '${2:figure caption}'}
+	<<${1:Name}, fig.width=${3:5}, fig.height=${4:5}, out.width='${5:.5}\\maxwidth', fig.cap=fig.cap, echo=${6:TRUE}>>=
+	   ${8}
+	@
+
+snippet cch
+	%-- $1: Reference to a knitr child document
+	<<${1:Name}, child = '${2: location of child document}'>>=
+	@
+	${3}
+	
+
+#-- End RNW specific snippets
+
+#--------------------------------#
+#         NEW ADDITIONS
+#--------------------------------#
+
+#~~~~~~ Flash Card document ~~~~~~#
+#new flashcard
+snippet flashcard
+	%New Card:
+	\CardFront{${1:CardFront}}
+	\CardBack{${2:CardBack}}
+	\NewCard{${3:CardType}}
+
+	${4}
+
+snippet fl
+	%New Card:
+	\CardFront{${1:CardFront}}
+	\CardBack{${2:CardBack}}
+	\NewCard{${3:CardType}}
+
+	${4}
+
+#Simple flash card
+snippet fs
+	%New Card:
+	\stepcounter{cardi}
+	\cardfrontfoot{\crseName: \noteSetNumber.\arabic{cardi}}
+	\begin{flashcard}[Topic \noteSetNumber: \lectureTitle]{\CardFront}
+	   \CardBack
+	\end{flashcard}
+	$3
+snippet fr
+	\renewcomand{CardFront}{
+snippet bc
+	\renewcomand{CardBack}{
+
+snippet code
+	%requires package minted
+	\usemintedstyle{${1:choose one-->}} %borland,trac,murphey,manni,tango are good
+	\definecolor{bg}{rgb}{0.95,0.95,0.95}
+	\begin{minted}[linenos=true,
+	               bgcolor=bg,
+						mathescape,
+	               frame=single,
+						stepnumber=5,
+						fontfamily=courier]{${2:Language}}
+	${3:Insert Code}
+	\end{minted}
+	${4}
+
+snippet codefile
+	%requires package minted
+	\usemintedstyle{${1:choose one-->}} %borland,trac,murphey,manni,tango are good
+	\definecolor{bg}{rgb}{0.95,0.95,0.95}
+	\inputminted[linenos=true,
+	               bgcolor=bg,
+						mathescape,
+	               frame=single,
+						stepnumber=5,
+						fontfamily=courier]{${2:Language}}
+						{${3:filename}
+	${4}
+
+snippet abc
+	\begin{itemize}
+	\item[(a)] $1
+	\item[(b)]
+	\item[(c)]
+	\end{itemize}
+
+#------ ANIMATIONS ------#
+#animate a set of graphs
+snippet animation
+	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
+	%NOTE: do not include the file extension in the file names
+	\begin{center}
+		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+	\end{center}
+
+#shorter name
+snippet animate
+	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
+	%NOTE: do not include the file extension in the file names
+	\begin{center}
+		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+	\end{center}
+
+#shorter name
+snippet anim
+	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
+	%NOTE: do not include the file extension in the file names
+	\begin{center}
+		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+	\end{center}
+
+#Shorter still
+snippet ani
+	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
+	%NOTE: do not include the file extension in the file names
+	\begin{center}
+		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+	\end{center}
+
+#------ MATH ------#
+snippet matA
+	${1:$} \boldsymbol{\mathit{${2:A}}} ${1}
+snippet intn
+	${1:$}\mathit{${2:n}}} ${1}
+snippet matrix
+	$\begin{bmatrix}
+	 a & b & c \\
+	 1 & 2 & 3 \\
+	 x & y & z \\
+	 \end{bmatrix} $
+snippet sum
+	$\sum_{${1:i=1}}^{${2:n}} {{$3:X_i - X_{i-1}}}
+snippet int
+	$\int_{${1:0}}^{${2:\infty}} {{$3:e^{-x}}\, \mathrm{d}x
+
+#------ Homework Set-Up by COURSE This Semester------#
+#------ MATH 544
+snippet 544hw
+	\PassOptionsToPackage{ usenames,dvipsnames,svgnames,table }{xcolor}
+	\documentclass{report}
+	
+	   \input{/Users/user//tex/hw/hw_packages.tex}
+	   \input{/Users/user/tex/hw/hw_definitions.tex}
+	   \input{/Users/user/tex/hw/hw_dimensions.tex}
+	
+	  %\tracingall % used to pin point problems in latexing a doc
+	
+	   \input{/Users/user/tex/hw/M544_course_spec_info.tex}
+	   \newcommand{\hmwkTitle}{Homework ${1}}
+	   \newcommand{\hmwkDueDate}{${2:Day}, ${3:Date}, 2013 }
+	   \newcommand{\hmwkAssignment}{${4:Assignment}} 
+	
+	\begin{document}
+	\input{/Users/user/tex/hw/hw_titlepage.tex} \\
+	
+	\begin{spacing}{1.1}
+	\begin{homeworkProblem}
+	   ${5}
+	\end{homeworkProblem}
+	
+	\end{spacing}
+	\end{document}
+	
+
+#------ Homework Set-Up by COURSE This Semester------#
+#------ STAT 615
+snippet 615hw
+	\PassOptionsToPackage{ usenames,dvipsnames,svgnames,table }{xcolor}
+	\documentclass{report}
+	
+	   \input{/Users/user//tex/hw/hw_packages.tex}
+	   \input{/Users/user/tex/hw/hw_definitions.tex}
+	   \input{/Users/user/tex/hw/hw_dimensions.tex}
+	
+	  %\tracingall % used to pin point problems in latexing a doc
+	
+	   \input{/Users/user/tex/hw/M544_course_spec_info.tex}
+	   \newcommand{\hmwkTitle}{Homework ${1}}
+	   \newcommand{\hmwkDueDate}{${2:Day}, ${3:Date}, 2013 }
+	   \newcommand{\hmwkAssignment}{${4:Assignment}} 
+	
+	\begin{document}
+	\input{/Users/user/tex/hw/hw_titlepage.tex} \\
+	
+	\begin{spacing}{1.1}
+	\begin{homeworkProblem}
+	   ${5}
+	\end{homeworkProblem}
+	
+	\end{spacing}
+	\end{document}
+
+
+#------ Homework Set-Up by COURSE This Semester------#
+#------ Homework Set-Up by COURSE Spring 2014------#
+#------ STAT 585X
+snippet hw
+	\PassOptionsToPackage{ usenames,dvipsnames,svgnames,table }{xcolor}
+	\documentclass{report}
+	
+	   \input{/Users/user//tex/hw/hw_packages.tex}
+	   \input{/Users/user/tex/hw/hw_definitions.tex}
+	   \input{/Users/user/tex/hw/hw_dimensions.tex}
+	
+	  %\tracingall % used to pin point problems in latexing a doc
+	
+	   \input{/Users/user/tex/hw/${1:S585X}_course_spec_info.tex}
+	   \newcommand{\hmwkTitle}{${2}}
+	   \newcommand{\hmwkDueDate}{${3:Day} ${4:Date}, 2014}
+	   \newcommand{\hmwkAssignment}{${5:Assignment}} 
+	   \newcommand{\hmwkAuthorName}{${6:Authors}}
+	   \newcommand{\hmwkAuthorContact}{\blue{${7:email}}}
+	
+	\begin{document}
+	\input{/Users/user/tex/hw/hw_titlepage.tex} \\
+	
+	\begin{spacing}{1.1}
+	\begin{homeworkProblem}${8:[Exercise 1]}
+	   ${0}
+	\end{homeworkProblem}
+	
+	\end{spacing}
+	\end{document}
+
+
+#------ STEM research group
+snippet newSTEM
+	\PassOptionsToPackage{ usenames,dvipsnames,svgnames,table }{xcolor}
+	\documentclass{report}
+	
+	   \input{/Users/user/tex/research/STEM/STEM_packages.tex}
+	   \input{/Users/user/tex/research/STEM/STEM_definitions.tex}
+	   \input{/Users/user/tex/research/STEM/STEM_dimensions.tex}
+	
+	  %\tracingall % used to pin point problems in latexing a doc
+	
+	   \input{/Users/user/tex/research/STEM/STEM_spec_info.tex}
+	   \newcommand{\hmwkTitle}{${1:Topic}}
+	   \newcommand{\hmwkDueDate}{${2:Day}, ${3:Date}, 2013 }
+	   \newcommand{\hmwkAssignment}{${4:Topic}} 
+	
+	\begin{document}
+	\input{/Users/user/tex/research/STEM/STEM_titlepage.tex} \\
+	
+	   ${5}
+	
+	\end{document}
+
+
+#Latex snippets
+snippet ian
+	Ian was Here
+#newcommand
+snippet nc
+	\newcommand{\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
+#usepackage
+snippet up
+	\usepackage[${1:options}]{${2:package}} ${0}
+#newunicodechar
+snippet nuc
+	\newunicodechar{${1}}{${2:\ensuremath}${3:tex-substitute}}} ${0}
+#DeclareMathOperator
+snippet dmo
+	\DeclareMathOperator{${1}}{${2}} ${0}
+
+#DOCUMENT
+# \begin{}...\end{}
+snippet begin
+	\begin{${1:env}}
+		${0}
+	\end{$1}
+# Tabular
+snippet tab
+	\begin{${1:tabular}}{${2:c}}
+	${0}
+	\end{$1}
+snippet thm
+	\begin[${1:author}]{${2:thm}}
+	${0}
+	\end{$2}
+snippet center
+	\begin{center}
+		${0}
+	\end{center}
+# Align(ed)
+snippet ali
+	\begin{align${1:ed}}
+		${0}
+	\end{align$1}
+# Gather(ed)
+snippet gat
+	\begin{gather${1:ed}}
+		${0}
+	\end{gather$1}
+# Equation
+snippet eq
+	\begin{equation}
+		${0}
+	\end{equation}
+# Equation
+snippet eq*
+	\begin{equation*}
+		${0}
+	\end{equation*}
+# Unnumbered Equation
+snippet \
+	\[
+		${0}
+	\]
+# Equation array
+snippet eqnarray
+	\begin{eqnarray}
+		${0}
+	\end{eqnarray}
+# Enumerate
+snippet enum
+	\begin{enumerate}
+		\item ${0}
+	\end{enumerate}
+# Itemize
+snippet itemize
+	\begin{itemize}
+		\item ${0}
+	\end{itemize}
+snippet item
+	\item ${1}
+# Description
+snippet desc
+	\begin{description}
+		\item[${1}] ${0}
+	\end{description}
+# Endless new item
+snippet ]i
+	\item ${1}
+	${0:]i}
+# Matrix
+snippet mat
+	\begin{${1:p/b/v/V/B/small}matrix}
+		${0}
+	\end{$1matrix}
+# Cases
+snippet cas
+	\begin{cases}
+		${1:equation}, &\text{ if }${2:case}\\
+		${0}
+	\end{cases}
+# Split
+snippet spl
+	\begin{split}
+		${0}
+	\end{split}
+# Part
+snippet part
+	\part{${1:part name}} % (fold)
+	\label{prt:${2:$1}}
+	${0}
+	% part $2 (end)
+# Chapter
+snippet cha
+	\chapter{${1:chapter name}}
+	\label{cha:${2:$1}}
+	${0}
+# Section
+snippet sec
+	\section{${1:section name}}
+	\label{sec:${2:$1}}
+	${0}
+# Section without number
+snippet sec*
+	\section*{${1:section name}}
+	\label{sec:${2:$1}}
+	${0}
+# Sub Section
+snippet sub
+	\subsection{${1:subsection name}}
+	\label{sub:${2:$1}}
+	${0}
+# Sub Section without number
+snippet sub*
+	\subsection*{${1:subsection name}}
+	\label{sub:${2:$1}}
+	${0}
+# Sub Sub Section
+snippet subs
+	\subsubsection{${1:subsubsection name}}
+	\label{ssub:${2:$1}}
+	${0}
+# Sub Sub Section without number
+snippet subs*
+	\subsubsection*{${1:subsubsection name}}
+	\label{ssub:${2:$1}}
+	${0}
+# Paragraph
+snippet par
+	\paragraph{${1:paragraph name}}
+	\label{par:${2:$1}}
+	${0}
+# Sub Paragraph
+snippet subp
+	\subparagraph{${1:subparagraph name}}
+	\label{subp:${2:$1}}
+	${0}
+snippet ni
+	\noindent
+	${0}
+#References
+snippet itd
+	\item[${1:description}] ${0:item}
+snippet figure
+	${1:Figure}~\ref{${2:fig:}}
+snippet table
+	${1:Table}~\ref{${2:tab:}}
+snippet listing
+	${1:Listing}~\ref{${2:list}}
+snippet section
+	${1:Section}~\ref{sec:${2}} ${0}
+snippet page
+	${1:page}~\pageref{${2}} ${0}
+snippet index
+	\index{${1:index}} ${0}
+#Citations
+snippet citen
+	\cite{$1} ${0}
+# bibtex commands
+snippet citep
+	\citep{$1} ${0}
+snippet citet
+	\citet{$1} ${0}
+snippet cite
+	\cite[${1}]{${2}} ${0}
+snippet fcite
+	\footcite[${1}]{${2}}${0}
+#Formating text: italic, bold, underline, small capital, emphase ..
+snippet it
+	\textit{${0:text}}
+snippet bf
+	\textbf{${0:text}}
+snippet under
+	\underline{${0:text}}
+snippet emp
+	\emph{${0:text}}
+snippet sc
+	\textsc{${0:text}}
+#Choosing font
+snippet sf
+	\textsf{${0:text}}
+snippet rm
+	\textrm{${0:text}}
+snippet tt
+	\texttt{${0:text}}
+#misc
+snippet ft
+	\footnote{${0:text}}
+snippet fig
+	\begin{figure}
+	\begin{center}
+	    \includegraphics[scale=${1}]{Figures/${2}}
+	\end{center}
+	\caption{${3}}
+	\label{fig:${4}}
+	\end{figure}
+	${0}
+snippet tikz
+	\begin{figure}
+	\begin{center}
+	\begin{tikzpicture}[scale=${1:1}]
+		${2}
+	\end{tikzpicture}
+	\end{center}
+	\caption{${3}}
+	\label{fig:${4}}
+	\end{figure}
+	${0}
+#math
+snippet stackrel
+	\stackrel{${1:above}}{${2:below}} ${0}
+snippet frac
+	\frac{${1:num}}{${2:denom}} ${0}
+snippet sum
+	\sum^{${1:n}}_{${2:i=1}} ${0}
+snippet lim
+	\lim_{${1:x \to +\infty}} ${0}
+snippet frame
+	\begin{frame}[<+->]
+		\frametitle{${1:title}}
+
+		${0}
+	\end{frame}
+snippet block
+	\begin{block}{${1:title}}
+	${0}
+	\end{block}
+snippet alert
+	\begin{alertblock}{${1:title}}
+	${0}
+	\end{alertblock}
+snippet example
+	\begin{exampleblock}{${1:title}}
+	${0}
+	\end{exampleblock}
+snippet col2
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			${1}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			${0}
+		\end{column}
+	\end{columns}
+
+snippet cshw
+	\begin{framed}
+	\textbf{Exercise ${1}} \smallskip \\
+	   \textbf{CLRS Exercise ${2:17.3-5} on page ${3}:}  \\
+	   ${4}
+	\end{framed}
