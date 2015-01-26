@@ -23,41 +23,41 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
    if a:ftvar == 'R'
-      execute 'so ~/.vim/vimPersonal/headers/R_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
    endif
 
    if a:ftvar == 'C'
-      execute 'so ~/github/vim/vimPersonal/headers/C_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/C_header.txt'
    endif
 
    if a:ftvar == 'Lisp'
-      execute 'so ~/.vim/vimPersonal/headers/Lisp_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Lisp_header.txt'
    endif
 
    if a:ftvar == 'java'
-      execute 'so ~/.vim/vimPersonal/headers/java_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/java_header.txt'
    endif
 
    if a:ftvar == 'SAS'
-      execute 'so ~/.vim/vimPersonal/headers/SAS_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/SAS_header.txt'
    endif
 
    if a:ftvar == 'TeX'
-      execute 'so ~/.vim/vimPersonal/headers/TeX_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/TeX_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
    endif
 
    if a:ftvar == 'Rnoweb'
-      execute 'so ~/.vim/vimPersonal/headers/Rnoweb_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Rnoweb_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
    endif
 
    if a:ftvar == 'Rmarkdown'
-      execute 'so ~/.vim/vimPersonal/headers/Rmarkdown_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
    endif
 
    if a:ftvar == 'Fortran'
-      execute 'so ~/.vim/vimPersonal/headers/Fortran_header.txt'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Fortran_header.txt'
    endif
   
    "Add file name to the header
