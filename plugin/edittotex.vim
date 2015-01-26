@@ -1,10 +1,9 @@
-"Handle ellipses
-%s/\.\s*\.\s*\.\s*/\.\.\./g
+"%s/\.\s*\.\s*\.\s*/\.\.\./g
 
-so ~/.vim/vim_personal/edittotex_tagequations.vim
+"so ~/.vim/vim_personal/edittotex_tagequations.vim
 
 "Delete blank lines
-%s/\n\+/\r/g
+"%s/\n\+/\r/g
 
 "Tag end of each line
 "%s/$/%--EOL/g
