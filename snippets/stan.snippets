@@ -32,7 +32,7 @@ snippet veclu
 	vec[${1:1}]<lower=${2:0},upper=${3:1}> ${4:x};
 
 snippet simp
-	simplex[{$1:1}] ${1:x};
+	simplex[{${1}:1}] ${1:x};
 
 snippet unit
 	unit_vector[${1:size}] ${2:x};
@@ -70,63 +70,63 @@ snippet chol
 #24.4. For Loops
 snippet for
 	for (${1:n} in 1:${2:N}) {
-	   $3
+	   ${3}
 	}
 
 #24.5. Conditional statments
 snippet ifel
-	if (${1:condition1}) $2 
+	if (${1:condition1}) ${2}
 
 snippet ifel
 	if (${1:condition1})
-	  $2 
+	  ${2} 
 	else 
-	  $3
+	  ${3}
 
 snippet ifelif
 	if (${1:condition1})
-	  $3 
+	  ${3} 
 	else if (${2:condition2})
-	  $4
+	  ${4}
 	else
-	  $5
+	  ${5}
 	   
 #24.6 While Statements
 snippet wh
 	while (${1:condition}) {
-	   $2
+	   ${2}
 	}
 
 #25.1 Function-Definition Block
 snippet funs
 	functions {
-		$1
+		${1}
 	}
 
 #25.2 Function Names
 snippet fun
 	${1:real} ${2:foo}(${3:args}) {
-	   $5
+	   ${5}
 		return ${5:x}
 	}
 
 #26.2 Overview of Stan's Program Blocks
 snippet dat
 	data {
-		$1
+		${1}
 	}
 
 snippet data
 	data {
-		$1
+		${1}
 	}
 
 snippet par
 	parameters {
-		$1
+		${1}
 	}
 
 snippet mod
 	model {
-	   $1
+	   ${1}
 	}

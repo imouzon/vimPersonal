@@ -1,4 +1,4 @@
-function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+function! g:TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
    let ft = toupper(a:filetype)
    let group = 'textGroup'.ft
    if exists('b:current_syntax')
@@ -23,4 +23,4 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
    \ contains=@'.group
 endfunction
 
-autocmd bufnewfile *.r, *.rnw, *.rmd call TextEnableCodeSnip('stan','#-- begin stan model','#-- end stan model','SpecialComment')
+autocmd bufnewfile *.r, *.rnw, *.rmd call g:TextEnableCodeSnip('stan','#-- begin stan model','#-- end stan model','SpecialComment')
