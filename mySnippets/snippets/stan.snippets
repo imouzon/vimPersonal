@@ -1,0 +1,132 @@
+#-- Some sippets to help with stan coding following the Stan reference manual:
+#   http://mc-stan.org/manual.html
+#22.2. Primitive Numerical Data Types
+
+#22.3. Univariate Data Types and Variable Declarations
+snippet int
+	int ${1:N};
+
+snippet intl
+	int<lower=${1:0}>} ${2:N};
+
+snippet intlu
+	int<lower=${1:0},upper=${2:1}> ${3:N};
+
+snippet real
+	real ${1:x};
+
+snippet reall
+	real<lower=${1:0}>} ${2:x};
+
+snippet reallu
+	real<lower=${1:0},upper=${2:1}> ${3:x};
+
+#22.4. Vector and Matrix Data Types
+snippet vec
+	vec[${1:1}] ${2:x};
+
+snippet vecl
+	vec[${1:1}]<lower=${2:0}>} ${3:x};
+
+snippet veclu
+	vec[${1:1}]<lower=${2:0},upper=${3:1}> ${4:x};
+
+snippet simp
+	simplex[{$1:1}] ${1:x};
+
+snippet unit
+	unit_vector[${1:size}] ${2:x};
+
+snippet ord
+	ordered[${1:size}] ${2:x};
+
+snippet pord
+	positive_ordered[${1:size}] ${2:x};
+
+snippet row
+	row_vector[${1:size}] ${2:x};
+
+snippet mat
+	matrix[${1:rows},${2:col}] ${3:x};
+
+snippet matl
+	matrix<lower=${1:lb}>[${2:rows},${3:col}] ${4:x};
+
+snippet matl
+	matrix<upper=${1:ub}>[${2:rows},${3:col}] ${4:x};
+
+snippet matlu
+	matrix<lower=${1:lb}, upper=${2:ub}>[${3:rows},${4:col}] ${5:x};
+
+snippet corrm
+	corr_matrix[${1:diag}] ${2:x};
+
+snippet chol
+	cholesky_factor_cov[${1:diag}] ${2:L};
+
+#24.3. Sampling statements
+
+
+#24.4. For Loops
+snippet for
+	for (${1:n} in 1:${2:N}) {
+	   $3
+	}
+
+#24.5. Conditional statments
+snippet ifel
+	if (${1:condition1}) $2 
+
+snippet ifel
+	if (${1:condition1})
+	  $2 
+	else 
+	  $3
+
+snippet ifelif
+	if (${1:condition1})
+	  $3 
+	else if (${2:condition2})
+	  $4
+	else
+	  $5
+	   
+#24.6 While Statements
+snippet wh
+	while (${1:condition}) {
+	   $2
+	}
+
+#25.1 Function-Definition Block
+snippet funs
+	functions {
+		$1
+	}
+
+#25.2 Function Names
+snippet fun
+	${1:real} ${2:foo}(${3:args}) {
+	   $5
+		return ${5:x}
+	}
+
+#26.2 Overview of Stan's Program Blocks
+snippet dat
+	data {
+		$1
+	}
+
+snippet data
+	data {
+		$1
+	}
+
+snippet par
+	parameters {
+		$1
+	}
+
+snippet mod
+	model {
+	   $1
+	}

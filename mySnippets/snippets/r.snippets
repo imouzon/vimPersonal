@@ -11,3 +11,20 @@ snippet pch
 	   ${6}
 	@
 
+   call TextEnableCodeSnip('stan','#-- begin stan mode\n   stan.model = \"','\"','SpecialComment')
+snippet stan
+	#-- begin stan model
+	stan.model = '
+	   data {
+		   $1 
+		}
+
+		parameters {
+		   
+		}
+
+		model {
+		   
+		}
+	'
+   #-- end stan model
