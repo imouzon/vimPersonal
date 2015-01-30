@@ -2,7 +2,7 @@
 snippet rch
 	%-- $1: R code (No Results in Document)
 	<<${1:Name},echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA>>=
-	   $2
+	   ${2}
 	@
 	
 snippet pch
@@ -15,15 +15,15 @@ snippet stan
 	#-- begin stan model
 	stan.model = '
 	   data {
-		   $1 
+		   ${1}
 		}
 
 		parameters {
-		   
+		   ${2}
 		}
 
 		model {
-		   
+		   ${3}
 		}
 	'
    #-- end stan model
