@@ -22,4 +22,5 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
    \ start="'.a:start.'" end="'.a:end.'"
    \ contains=@'.group
 endfunction
-call TextEnableCodeSnip('stan','#-- begin stan model','#-- end stan model','SpecialComment')
+
+autocmd bufnewfile *.r, *.rnw, *.rmd call TextEnableCodeSnip('stan','#-- begin stan model','#-- end stan model','SpecialComment')
