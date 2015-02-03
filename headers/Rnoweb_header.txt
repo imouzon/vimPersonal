@@ -15,7 +15,7 @@
    #devtools::install_github('imouzon/usefulR')
    library(usefulR)
 
-   #working.dir = '.'
+   #workingdir = 
    #setwd(working.dir)
    knitrSetup(rootDir=FALSE,use.tikz=TRUE)
 
