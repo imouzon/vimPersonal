@@ -50,7 +50,7 @@ function! g:AddHeader(ftvar)
    if a:ftvar == 'Rnoweb'
       execute 'so ~/.vim/bundle/vimPersonal/headers/Rnoweb_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
-      execute "11,".25."g/working\.dir \= '.'/s//working\.dir \= '".expand("%:r:h")."'"
+      execute "11,".25."g/working\.dir \= '.'/s//working\.dir \= '".expand("%:p:h")."'"
    endif
 
    if a:ftvar == 'Rmarkdown'
