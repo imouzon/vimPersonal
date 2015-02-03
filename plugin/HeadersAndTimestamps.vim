@@ -49,7 +49,7 @@ function! g:AddHeader(ftvar)
 
    if a:ftvar == 'Rnoweb'
       execute 'so ~/.vim/bundle/vimPersonal/headers/Rnoweb_header.txt'
-      execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
+      execute "1,1s,g/For LaTeX-Box: root \=,For LaTeX-Box: root \= ".expand("%:r").".tex"
 
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       execute "11,".25."s,#working.dir \= '\.',".workingdir.','

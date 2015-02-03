@@ -11,7 +11,6 @@
 %-- Set parent file
 <<set-parent, echo=FALSE, message=FALSE, cache=FALSE, include = TRUE>>=
    #set up knitr
-   #install.packages('devtools')
    #devtools::install_github('imouzon/usefulR')
    library(usefulR)
 
