@@ -22,6 +22,10 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
+   if a:ftvar == 'Rdev'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Rdev_header.txt'
+   endif
+
    if a:ftvar == 'R'
       execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
    endif
@@ -68,6 +72,7 @@ function! g:AddHeader(ftvar)
    exe "2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
 endfunction
 
+autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
 autocmd bufnewfile *.R,*.Renviron,*.Rprofile call g:AddHeader('R')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
