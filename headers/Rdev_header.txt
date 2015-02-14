@@ -2,6 +2,9 @@
 #' Keep the parent document simple
 #'
 #' This code sets some of the values for knitr that I like.
+#' Creation Date:
+#' Last Modified: 
+#'
 #' @param paramname character value, optional argument
 #' @param paramname integer value, optional argument
 #' @param docName character value, optional argument

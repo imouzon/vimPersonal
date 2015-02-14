@@ -23,11 +23,15 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
    if a:ftvar == 'Rdev'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Rdev_header.txt'
    endif
 
    if a:ftvar == 'R'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
+      "If there is a NAMESPACE file in the parent level, it's an Rdev
+      if filereadable(expand('%:p:h:h').'/NAMESPACE')
+         execute 'so ~/.vim/bundle/vimPersonal/headers/Rdev_header.txt'
+      else
+         execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
+      endif
    endif
 
    if a:ftvar == 'C'
