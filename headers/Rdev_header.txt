@@ -1,7 +1,7 @@
 :insert
-#' Keep the parent document simple
+#' function_name:
 #'
-#' This code sets some of the values for knitr that I like.
+#' Purpose: 
 #' Creation Date:
 #' Last Modified: 
 #'
