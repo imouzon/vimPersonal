@@ -14,7 +14,7 @@ function! ColorMe(...)
       :colorscheme summerfruit256
    endif
    if a:1 == 'dark'
-      :colorscheme wombat
+      :colorscheme wombat256mod
    endif
 endfunction
 
