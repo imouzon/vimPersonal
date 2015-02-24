@@ -20,6 +20,21 @@ endfunction
 
 command! Colordark call ColorMe('dark')
 command! Colorlight call ColorMe('light')
+
+function! SolarColor(...)
+   let g:solarized_termcolors=256
+   if a:1 == 'light'
+      set background=light
+   else
+      set background=dark
+   endif
+   colorscheme solarized
+endfunction
+
+command! Solardark call SolarColor('dark')
+command! Solarlight call SolarColor('light')
+
+
       
 "-- Light Themes
 " autumn
