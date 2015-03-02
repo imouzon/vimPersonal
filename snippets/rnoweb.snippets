@@ -7,20 +7,20 @@ snippet rch
 
 snippet pch
 	%-- $1: R plot (results in document)
-	<<${1:Name}, fig.width=${2:5}, fig.height=${3:5}, out.width='${4:.5}\\maxwidth', echo=${6:TRUE}>>=
+	<<${1:Name}, fig.width=${2:5}, fig.height=${3:5}, out.width='${4:.5}\\\\maxwidth', echo=${6:TRUE}>>=
 	   ${7}
 	@
 
 snippet ach
 	%-- $1: R animations (results in document)
-	<<${1:Name}, fig.width=${2}, fig.height=${3}, out.width='${4}\\maxwidth', fig.show='animate', interval=${6:.1}, echo=${7:TRUE}, crop=TRUE>>=
+	<<${1:Name}, fig.width=${2}, fig.height=${3}, out.width='${4}\\\\maxwidth', fig.show='animate', interval=${6:.1}, echo=${7:TRUE}, crop=TRUE>>=
 	   ${8}
 	@
 
 snippet fch
 	%-- $1: R figure (code in document - set include=FALSE to remove)
 	\Sexpr{fig.cap = '${2:figure caption}'}
-	<<${1:Name}, fig.width=${3:5}, fig.height=${4:5}, out.width='${5:.5}\\maxwidth', fig.cap=fig.cap, echo=${6:TRUE}>>=
+	<<${1:Name}, fig.width=${3:5}, fig.height=${4:5}, out.width='${5:.5}\\\\maxwidth', fig.cap=fig.cap, echo=${6:TRUE}>>=
 	   ${8}
 	@
 
