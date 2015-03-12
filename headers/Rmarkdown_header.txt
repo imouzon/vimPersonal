@@ -2,8 +2,8 @@
 ---
 layout: post
 title: ""
-description: "This is not my first blog post."
-tags: [thoughts, readability, test, intro]
+description: ""
+tags: []
 image:
   feature: abstract-6.jpg
   credit: dargadgetz

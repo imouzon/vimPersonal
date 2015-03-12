@@ -23,9 +23,7 @@
    set_parent(parent.file)
 @
 
-
 %-- title page and quote
-%\HWnumber{}
 %\HWinfo{DueDate}{HWnumber}{Assignment}
 %\titleheader
 
