@@ -9,7 +9,7 @@
 "              See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 " ============================================================================
-let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java lisp lsp rnw sas tex vim"
+let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java javascript lisp lsp rnw sas tex vim"
 
 "Function: g:AddHeader() function 
 "Adds headers to newly created files
@@ -44,6 +44,10 @@ function! g:AddHeader(ftvar)
 
    if a:ftvar == 'java'
       execute 'so ~/.vim/bundle/vimPersonal/headers/java_header.txt'
+   endif
+
+   if a:ftvar == 'javascript'
+      execute 'so ~/.vim/bundle/vimPersonal/headers/js_header.txt'
    endif
 
    if a:ftvar == 'SAS'
@@ -86,6 +90,7 @@ autocmd bufnewfile *.tex call g:AddHeader('TeX')
 autocmd bufnewfile *.rnw call g:AddHeader('Rnoweb')
 autocmd bufnewfile *.rmd call g:AddHeader('Rmarkdown')
 autocmd bufnewfile *.f,*.for call g:AddHeader('Fotran')
+autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
 
 "Function: g:AddTimestamp() function 
 "Adds timestamps when files are saved
@@ -108,9 +113,7 @@ function! g:AddTimestamp(timestamp_newfile)
 endfunction
 
 "set timestamp automatically
-autocmd bufnewfile *.css,*.java,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
+autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
 
 "update timestamp automatically
-autocmd Bufwritepre,filewritepre *.css,*.java,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
-
-
+autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
