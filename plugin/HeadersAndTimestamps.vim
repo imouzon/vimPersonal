@@ -22,9 +22,6 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
-   if a:ftvar == 'Rdev'
-   endif
-
    if a:ftvar == 'R'
       "If there is a NAMESPACE file in the parent level, it's an Rdev
       if filereadable(expand('%:p:h:h').'/NAMESPACE')
