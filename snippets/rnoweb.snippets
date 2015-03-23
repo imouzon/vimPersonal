@@ -109,7 +109,7 @@ snippet animation
 	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
 	%NOTE: do not include the file extension in the file names
 	\begin{center}
-		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+		\animategraphics[${1:options: scale=.7}]{${2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${4:First}}{${5:LastFile}}
 	\end{center}
 
 #shorter name
@@ -117,7 +117,7 @@ snippet animate
 	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
 	%NOTE: do not include the file extension in the file names
 	\begin{center}
-		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+		\animategraphics[${1:options: scale=.7}]{${2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${4:First}}{${5:LastFile}}
 	\end{center}
 
 #shorter name
@@ -125,7 +125,7 @@ snippet anim
 	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
 	%NOTE: do not include the file extension in the file names
 	\begin{center}
-		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+		\animategraphics[${1:options: scale=.7}]{${2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${4:First}}{${5:LastFile}}
 	\end{center}
 
 #Shorter still
@@ -133,7 +133,7 @@ snippet ani
 	%http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/animate/animate.pdf
 	%NOTE: do not include the file extension in the file names
 	\begin{center}
-		\animategraphics[${1:options: scale=.7]${{2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${3:First}}{${4:LastFile}}
+		\animategraphics[${1:options: scale=.7}]{${2:Frame Rate}}{${3:FileBaseName: ./R/fig}}{${4:First}}{${5:LastFile}}
 	\end{center}
 
 #------ MATH ------#
@@ -527,9 +527,15 @@ snippet col2
 		\end{column}
 	\end{columns}
 
-snippet cshw
+snippet problem
 	\begin{framed}
-	\textbf{Exercise ${1}} \smallskip \\
-	   \textbf{CLRS Exercise ${2:17.3-5} on page ${3}:}  \\
-	   ${4}
+	\textbf{Problem ${1}} \smallskip \\
+	   \textbf{${2:Location in book}:}  \\
+	   ${3}
 	\end{framed}
+
+	${4}
+
+	\pagebreak
+
+
