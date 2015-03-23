@@ -8,7 +8,7 @@ function! KnitVim(...)
       let knitInputs = ["knitsilent","inFileDir","compileTeX","openPDF","usingRmacros"]
       let nknitopts = len(knitInputs)
 
-      "check each option (seperatly :sadface:)
+      "check each option (separatly :sadface:)
 
       "need to sed then compile if Rmacros used
       if index(a:000,'usingRmacros') > -1
@@ -42,12 +42,22 @@ function! KnitVim(...)
          end
       end
    end
+   :redraw!
+endfunction
+
+function! KnitDebug(...)
+   !R --no-save --no-restore -e "require(knitr); knit('%:p:r.rnw',output='%:p:r.tex'); q()"
+   !pdflatex %:p:r.tex
+   silent !open %:p:r.pdf
+   :redraw!
 endfunction
 
 command! KnitQ call KnitVim("knitsilent","compileTeX","openPDF")
 command! KnitL call KnitVim("compileTeX","openPDF")
 command! KnitR call KnitVim("usingRmacros","compileTeX","openPDF")
+command! KnitD call KnitDebug()
 
 nnoremap <silent> <Leader>kk :call KnitVim("knitsilent","compileTeX")<CR>
 nnoremap <silent> <Leader>kj :call KnitVim("compileTeX")<CR>
 nnoremap <silent> <Leader>kr :call KnitVim("knitsilent","usingRmacros","compileTeX")<CR>
+nnoremap <silent< <Leader>kd :call KnitDebug()<CR> 
