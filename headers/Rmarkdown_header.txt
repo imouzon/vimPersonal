@@ -1,16 +1,24 @@
 :insert
 ---
-layout: post
-title: ""
-description: ""
-tags: []
-image:
-  feature: abstract-6.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
-comments: true
-share: true
+title: 
+author: 
+course: 
+date: 
 ---
 
+[//]: # (R code (No Results in Document))
+```{r set-parent, echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
+   #set up knitr
+   #devtools::install_github('imouzon/usefulR')
+   library(usefulR)
+
+   working.dir = "/Users/user/dmc2015/ian"
+   setwd(working.dir)
+   knitrSetup(rootDir=FALSE,use.tikz=TRUE)
+
+   #set up file locations
+   parent.file = makeParent(parentDir = getwd(),type="markdown",overwrite=FALSE)
+   set_parent(parent.file)
+```
 
 .
