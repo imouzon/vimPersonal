@@ -1,12 +1,12 @@
 #-- Some sippets to help with rnw files
 snippet rch
-	<!-- $1: R code (No Results in Document) -->
+	[//]: # ($1: R code (No Results in Document))
 	\`\`\`{r ${1:chunk-label},echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
 	   ${2}
 	\`\`\`
 
 snippet pch
-	<!-- $1: R plot (results in document) -->
+	[//]: # ($1: R code (No Results in Document))
 	\`\`\`{r ${1:chunk-label},fig.width=${2},fig.height=${3},out.width='${4}\\linewidth',out.height='${5}\\linewidth',crop=TRUE,tidy=FALSE,echo=FALSE,results=FALSE,warning=FALSE,message=FALSE}
 	   ${6}
 	\`\`\`
@@ -44,7 +44,7 @@ snippet $$
 
 #-- Some snippets to help with markdown
 snippet code
-   <!-- $1 code -->
+	[//]: # ($1: R code (No Results in Document))
 	\`\`\`${1:language}
 	$2
 	\`\`\`
