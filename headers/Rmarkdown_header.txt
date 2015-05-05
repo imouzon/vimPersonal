@@ -1,24 +1,35 @@
 :insert
 ---
 title: 
-author: 
-course: 
-date: 
+titleshort:
+instructions:
+author: Ian Mouzon
+authorshort: Mouzon
+contact: imouzon@iastate.edu
+grouplong: 
+groupshort: 
+leader: 
+leadershort: 
+semester: 
+assignment: 
+duedate: 
+output:
+  usefulR::hw_format
 ---
 
-[//]: # (R code (No Results in Document))
+<!--- # (R code (No Results in Document)) -->
 ```{r set-parent, echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
    #set up knitr
    #devtools::install_github('imouzon/usefulR')
    library(usefulR)
 
-   working.dir = "/Users/user/dmc2015/ian"
-   setwd(working.dir)
-   knitrSetup(rootDir=FALSE,use.tikz=TRUE)
+   #set working directory
+   #working.dir = '.'
+   #setwd(working.dir)
 
-   #set up file locations
-   parent.file = makeParent(parentDir = getwd(),type="markdown",overwrite=FALSE)
-   set_parent(parent.file)
+   #compile the document to PDF
+   if(renderNow) 
+      rmarkdown::render("~/dmc2015/ian/catID_features.rmd")
 ```
 
 .

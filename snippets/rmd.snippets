@@ -1,30 +1,15 @@
 #-- Some sippets to help with rnw files
 snippet rch
-	[//]: # ($1: R code (No Results in Document))
-	\`\`\`{r ${1:chunk-label},echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
+	<!--- $1: R code (No Results in Document) -->
+	\`\`\`{r ${1:chunk-label},cache=FALSE}
 	   ${2}
 	\`\`\`
 
 snippet pch
-	[//]: # ($1: R code (No Results in Document))
-	\`\`\`{r ${1:chunk-label},fig.width=${2},fig.height=${3},out.width='${4}\\linewidth',out.height='${5}\\linewidth',crop=TRUE,tidy=FALSE,echo=FALSE,results=FALSE,warning=FALSE,message=FALSE}
+	<!--- $1: R code (No Results in Document) -->
+	\`\`\`{r ${1:chunk-label},fig.width=${2},fig.height=${3},out.width='${4}\\linewidth',out.height='${5}\\linewidth'}
 	   ${6}
 	\`\`\`
-
-snippet blog
-	\`\`\`{r DateOfCompilation},echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
-	   BlogPostDate <- format(Sys.time(), "%A, %B %d %Y at %H:%M")
-	\`\`\`
-	---
-	date: ${1:} \`r BlogPostDate\`
-	title: ${2}
-	slug: ${3}
-	tags: ${4}
-	type: ${5}
-	published: false
-	excerpt: ${6}
-	---
-	${7}
 
 snippet list
 	- ${1}
@@ -35,17 +20,16 @@ snippet `
 	\`r ${1}\`
 
 snippet $
-	<!-- equation -->
+	<!--- equation -->
 	$${1}$
 
 snippet $$
-	<!-- display equation -->
+	<!--- display equation -->
 	$$${1}$$
 
 #-- Some snippets to help with markdown
 snippet code
-	[//]: # ($1: R code (No Results in Document))
+	<!--- $1: R code (No Results in Document) -->
 	\`\`\`${1:language}
 	$2
 	\`\`\`
-
