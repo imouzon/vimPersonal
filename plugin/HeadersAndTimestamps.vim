@@ -64,6 +64,11 @@ function! g:AddHeader(ftvar)
 
    if a:ftvar == 'Rmarkdown'
       execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
+      let workingdir = 'working.dir = "'.expand('%:p:h').'"'
+      let render = 'render("'.expand('%:p').'")'
+      execute "20,".40."s,#working.dir \= '\.',".workingdir.','
+      execute "20,".40."s,#setwd(working.dir),setwd(working.dir),"
+      execute "20,".40."s,render(pathtofile),".render.","
    endif
 
    if a:ftvar == 'Fortran'

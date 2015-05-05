@@ -28,8 +28,8 @@ output:
    #setwd(working.dir)
 
    #compile the document to PDF
-   if(renderNow) 
-      rmarkdown::render("~/dmc2015/ian/catID_features.rmd")
+   #if(FALSE) 
+      rmarkdown::render(pathtofile)
 ```
 
 .
