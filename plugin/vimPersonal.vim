@@ -19,13 +19,21 @@ if v:version < 700
     echoerr "vimPersonal: this plugin requires vim >= 7."
     finish
 endif
-let loaded_vimPersonal = 1
 
+let loaded_vimPersonal = 1
 
 " SECTION: Headers and Timestamps
 "============================================================
 "filetypes that have headers
-"source ~/.vim/bundle/vimPersonal/plugin/HeadersAndTimestamps.vim
+" autoload/HeadersAndTimestamps.vim
+
+autocmd bufnewfile *.R,*.Renviron,*.Rprofile *.c,*.cpp, *.lisp,*.lsp, *.java, *.sas, *.tex, *.rnw, *.rmd, *.f,*.for, *.js,*.javascript call HeadersAndTimestamps#func()
+
+"set timestamp automatically
+autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call AddTimestamp#func(1)
+
+"update timestamp automatically
+autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
 
 
 " SECTION: python 
