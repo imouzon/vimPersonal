@@ -58,7 +58,7 @@ function! g:AddHeader(ftvar)
 
    if a:ftvar == 'Rnoweb'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
-      execute "11,".25."s,#working.dir \= '\.',".workingdir.','
+      execute "11,".25."s,#working\.dir \= '\.',".workingdir.','
       execute "11,".25."s,#setwd(working.dir),setwd(working.dir),"
    endif
 
@@ -66,9 +66,10 @@ function! g:AddHeader(ftvar)
       execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       let render = 'render("'.expand('%:p').'")'
-      execute "20,".40."s,#working.dir \= '\.',".workingdir.','
-      execute "20,".40."s,#setwd(working.dir),setwd(working.dir),"
-      execute "20,".40."s,render(pathtofile),".render.","
+      let lnumb = line('$')
+      execute "20,".lnumb."s,#working.dir \= '\.',".workingdir.','
+      execute "20,".lnumb."s,#setwd(working.dir),setwd(working.dir),"
+      execute "20,".lnumb."s,render(pathtofile),".render.","
    endif
 
    if a:ftvar == 'Fortran'
