@@ -17,4 +17,3 @@ function! vimPersonal#AddTimestamp(timestamp_newfile)
    execute "2," . 9 . "s/Last Modified:.*/Last Modified: " .strftime("%c")
    "execute "normal `p"
 endfunction
-
