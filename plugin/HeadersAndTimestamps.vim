@@ -57,8 +57,8 @@ function! g:AddHeader(ftvar)
    endif
 
    if a:ftvar == 'Rnoweb'
-      let workingdir = 'working.dir = "'.expand('%:p:h').'"'
-      execute "11,".25."s,#working\.dir \= '\.',".workingdir.','
+      let workingdir = "working.dir = \"".expand("%:p:h")."\""
+      execute "11,".25."s,#working\.dir \= \"\.\",".workingdir.","
       execute "11,".25."s,#setwd(working.dir),setwd(working.dir),"
    endif
 
