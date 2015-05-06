@@ -9,7 +9,7 @@
 "--------------------------------------**--------------------------------------"
 "
 
-function! ColorMe(...)
+function! vimPersonal#ColorMe(...)
    if a:1 == 'light'
       :colorscheme summerfruit256
    endif
@@ -18,10 +18,11 @@ function! ColorMe(...)
    endif
 endfunction
 
-command! Colordark call ColorMe('dark')
-command! Colorlight call ColorMe('light')
+command! Colordark call vimPersonal#colorMe#ColorMe('dark')
 
-function! SolarColor(...)
+command! Colorlight call vimPersonal#colorMe#ColorMe('light')
+
+function! vimPersonal#SolarColor(...)
    let g:solarized_termcolors=256
    if a:1 == 'light'
       set background=light
@@ -31,11 +32,9 @@ function! SolarColor(...)
    colorscheme solarized
 endfunction
 
-command! Solardark call SolarColor('dark')
-command! Solarlight call SolarColor('light')
+command! Solardark call vimPersonal#SolarColor('dark')
+command! Solarlight call vimPersonal#SolarColor('light')
 
-
-      
 "-- Light Themes
 " autumn
 " autumn2
