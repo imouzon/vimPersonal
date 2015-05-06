@@ -39,7 +39,7 @@ function! vimPersonal#AddHeader()
       let ftvar = tolower(a:ftvar)
    endif
 
-   execute 'so ~/.vim/bundle/vimPersonal/headers/'.a:ftvar."_header.vim"
+   execute 'so '.header_loc.a:ftvar."_header.vim"
 
    "Add file name to the header
    exe "%s/2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")."/e"
