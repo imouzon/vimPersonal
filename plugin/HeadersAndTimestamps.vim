@@ -20,67 +20,43 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 "Returns:
 "1 if the no errors were encountered, 0 otherwise
 
+let g:vimPersonal_path = escape( expand( '<sfile>:p:h' ), '\' )
+
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
-   if a:ftvar == 'R'
-      "If there is a NAMESPACE file in the parent level, it's an Rdev
-      if filereadable(expand('%:p:h:h').'/NAMESPACE')
-         execute 'so ~/.vim/bundle/vimPersonal/headers/Rdev_header.txt'
-      else
-         execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
-      endif
+   "general parameters
+   " directory path:      expand('%:p:h')
+   " filename (with ext): expand("%:t")
+   " filename (no ext):   expand("%:t:r")
+   " fext = expand("%:t:e")
+
+
+   if filereadable(expand('%:p:h:h').'/NAMESPACE')
+      let ftvar = "Rdev"
    endif
 
-   if a:ftvar == 'C'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/C_header.txt'
-   endif
-
-   if a:ftvar == 'Lisp'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Lisp_header.txt'
-   endif
-
-   if a:ftvar == 'java'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/java_header.txt'
-   endif
-
-   if a:ftvar == 'javascript'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/js_header.txt'
-   endif
-
-   if a:ftvar == 'SAS'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/SAS_header.txt'
-   endif
+   execute 'so ~/.vim/bundle/vimPersonal/headers/'.a:ftvar
 
    if a:ftvar == 'TeX'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/TeX_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
-   endif
-
-   if a:ftvar == 'Rnoweb'
-      let workingdir = "working.dir = \"".expand("%:p:h")."\""
+   elseif a:ftvar == 'Rnoweb'
+      let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       execute "11,".25."s,#working\.dir \= \"\.\",".workingdir.","
       execute "11,".25."s,#setwd(working.dir),setwd(working.dir),"
-   endif
-
-   if a:ftvar == 'Rmarkdown'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
+   elseif a:ftvar == 'Rmarkdown'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       let render = 'render("'.expand('%:p').'")'
-      let lnumb = line('$')
-      execute "20,".lnumb."s,#working.dir \= '\.',".workingdir.','
-      execute "20,".lnumb."s,#setwd(working.dir),setwd(working.dir),"
-      execute "20,".lnumb."s,render(pathtofile),".render.","
+      execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
+      execute "%s,#working.dir \= '\.',".workingdir.',e'
+      execute "%s,#setwd(working.dir),setwd(working.dir),e"
+      execute "%s,render(pathtofile),".render.",e"
+      execute "%s,#if(FALSE),if(FALSE),e"
+   elseif a:ftvar == 'Fortran'
    endif
-
-   if a:ftvar == 'Fortran'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Fortran_header.txt'
-   endif
-  
    "Add file name to the header
-   exe "2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
+   exe "%s/2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
 endfunction
 
-autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
 autocmd bufnewfile *.R,*.Renviron,*.Rprofile call g:AddHeader('R')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
