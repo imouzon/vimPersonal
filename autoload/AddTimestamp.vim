@@ -6,7 +6,7 @@
 "
 "Returns:
 "1 if the no errors were encountered, 0 otherwise
-function! g:AddTimestamp(timestamp_newfile)
+function! vimPersonal#AddTimestamp(timestamp_newfile)
    if a:timestamp_newfile == 1
       execute "2," . 9 . "s/Creation Date:.*/Creation Date: " .strftime("%d-%m-%Y")
       execute "normal G"

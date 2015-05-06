@@ -21,7 +21,7 @@
 
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
-function! g:AddHeader()
+function! vimPersonal#AddHeader()
    let available_header_file_extensions = "R c cpp css f for java javascript lisp lsp rnw sas tex vim"
    "general parameters
    " directory path:      expand('%:p:h')
