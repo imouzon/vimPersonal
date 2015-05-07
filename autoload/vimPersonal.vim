@@ -96,9 +96,9 @@ function! vimPersonal#AddTimestamp(timestamp_newfile)
    endif
 
    "Add time saved to file
-   "execute "normal mp"
+   "execute 'normal mp'
    execute "2," . 9 . "s/Last Modified:.*/Last Modified: " .strftime("%c") ."/e"
-   "execute "normal `p"
+   "execute 'normal `p'
 endfunction
 
 
