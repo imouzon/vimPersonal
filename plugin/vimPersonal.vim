@@ -60,8 +60,6 @@ autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,
 
 " SECTION: vim color functions
 "============================================================
-"source ~/.vim/bundle/vimPersonal/plugin/vim_color_functions.vim
-
 
 " SECTION: Change directory
 "============================================================
