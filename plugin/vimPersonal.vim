@@ -60,6 +60,7 @@ autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,
 
 " SECTION: vim color functions
 "============================================================
+call vimPersonal#ColorMe("dark")
 
 " SECTION: Change directory
 "============================================================
