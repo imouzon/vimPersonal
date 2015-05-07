@@ -28,7 +28,6 @@ function! vimPersonal#ColorMe(...)
    endif
 endfunction
 
-
 "Function: g:AddHeader() function 
 "Adds headers to newly created files
 "

@@ -30,10 +30,10 @@ let s:vimPersoanl_path = escape(expand('<sfile>:p:h'),'\')
 "filetypes that have headers
 " autoload/HeadersAndTimestamps.vim
 
-autocmd bufnewfile *.R,*.Renviron,*.Rprofile *.c,*.cpp, *.lisp,*.lsp, *.java, *.sas, *.tex, *.rnw, *.rmd, *.f,*.for, *.js,*.javascript call vimPersonal#AddHeader()
+autocmd BufNewFile *.R,*.Renviron,*.Rprofile *.c,*.cpp, *.lisp,*.lsp, *.java, *.sas, *.tex, *.rnw, *.rmd, *.f,*.for, *.js,*.javascript call vimPersonal#AddHeader()
 
 "set timestamp automatically
-autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call vimPersonal#AddTimestamp(1)
+autocmd BufNewFile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call vimPersonal#AddTimestamp(1)
 
 "update timestamp automatically
 autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call vimPersonal#AddTimestamp(0)
