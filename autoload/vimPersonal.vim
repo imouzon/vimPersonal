@@ -1,4 +1,4 @@
-function! ColorMe(...)
+function! vimPersonal#ColorMe(...)
    if a:1 == 'light'
       :colorscheme summerfruit256
    endif
