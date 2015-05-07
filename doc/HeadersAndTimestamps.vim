@@ -14,7 +14,6 @@
 "Adds headers to newly created files
 "
 "Args:
-"ftvar: the type of file being created
 "
 "Returns:
 "1 if the no errors were encountered, 0 otherwise

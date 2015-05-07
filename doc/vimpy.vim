@@ -47,7 +47,3 @@ function! ScreenSessions(close_group)
 
 endfunction
 
-command! Vimpy call ScreenSessions('vimpy')
-
-nnoremap <Leader>ip :call ScreenSessions('vimpy')<CR>
-nnoremap <Leader>iq :execute '!screen -X -S vimpy quit'<CR>
