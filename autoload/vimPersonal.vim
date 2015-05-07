@@ -91,13 +91,13 @@ endfunction
 "1 if the no errors were encountered, 0 otherwise
 function! vimPersonal#AddTimestamp(timestamp_newfile)
    if a:timestamp_newfile == 1
-      execute "2," . 9 . "s/Creation Date:.*/Creation Date: " .strftime("%d-%m-%Y")
+      execute "2," . 9 . "s/Creation Date:.*/Creation Date: " .strftime("%d-%m-%Y") . "/e"
       execute "normal G"
    endif
 
    "Add time saved to file
    "execute "normal mp"
-   execute "2," . 9 . "s/Last Modified:.*/Last Modified: " .strftime("%c")
+   execute "2," . 9 . "s/Last Modified:.*/Last Modified: " .strftime("%c") ."/e"
    "execute "normal `p"
 endfunction
 
