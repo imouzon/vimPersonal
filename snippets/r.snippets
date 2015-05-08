@@ -1,0 +1,29 @@
+#-- Some sippets to help with rnw files
+snippet rch
+	%-- $1: R code (No Results in Document)
+	<<${1:Name},echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA>>=
+	   ${2}
+	@
+	
+snippet pch
+	%-- $1: R plot (results in document)
+	<<${1:Name},fig.width=${2},fig.height=${3},out.width='${4}\\linewidth',out.height='${5}\\linewidth',crop=TRUE,tidy=FALSE,echo=FALSE,results=FALSE,warning=FALSE,message=FALSE>>=
+	   ${6}
+	@
+
+snippet stan
+	#-- begin stan model
+	stan.model = '
+	   data {
+		   ${1}
+		}
+
+		parameters {
+		   ${2}
+		}
+
+		model {
+		   ${3}
+		}
+	'
+	#-- end stan model
