@@ -1,31 +1,33 @@
 #-- Some sippets to help with rnw files
 snippet rch
 	<!--- $1: R code (No Results in Document) -->
-	\`\`\`{r ${1:chunk-label},cache=FALSE}
+	\`\`\`{r ${1:chunk-label,} cache=FALSE}
 	   ${2}
 	\`\`\`
 
 snippet pch
 	<!--- $1: R code (No Results in Document) -->
-	\`\`\`{r ${1:chunk-label},fig.width=${2},fig.height=${3},out.width='${4}\\linewidth',out.height='${5}\\linewidth'}
+	\`\`\`{r ${1:chunk-label},fig.width=${2},fig.height=${3},out.width='${4}\\\\linewidth',out.height='${5}\\\\linewidth'}
 	   ${6}
 	\`\`\`
 
 snippet list
-	- ${1}
-	- ${2}
-	- ${3}
+	-  ${1}
+	-  ${2}
+	-  ${3}
 
 snippet `
 	\`r ${1}\`
 
 snippet $
 	<!--- equation -->
-	$${1}$
+	\\({1}\\)
 
 snippet $$
 	<!--- display equation -->
-	$$${1}$$
+	\\[
+		${1}
+	\\]
 
 #-- Some snippets to help with markdown
 snippet code
