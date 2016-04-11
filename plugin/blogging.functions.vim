@@ -38,6 +38,4 @@
    endfunction
 
    "mp for make post
-   nnoremap <silent> <Leader>mp :call KnitMD()<CR>
-
-
+   nnoremap <silent> <Leader>mkp :call KnitMD()<CR>
