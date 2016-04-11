@@ -89,9 +89,9 @@ endfunction
 
 "autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
-autocmd bufnewfile *.r,*.R,*.Renviron,*.Rprofile call g:AddHeader('R')
-autocmd bufnewfile *.rnw,*.Rnw call g:AddHeader('Rnoweb')
-autocmd bufnewfile *.rmd,*.Rmd call g:AddHeader('Rmarkdown')
+autocmd bufnewfile *.r,*.Renviron,*.Rprofile call g:AddHeader('R')
+autocmd bufnewfile *.rnw call g:AddHeader('Rnoweb')
+autocmd bufnewfile *.rmd call g:AddHeader('Rmarkdown')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
 autocmd bufnewfile *.java call g:AddHeader('java')
 autocmd bufnewfile *.sas call g:AddHeader('SAS')
