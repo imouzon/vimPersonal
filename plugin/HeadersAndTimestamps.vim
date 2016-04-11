@@ -38,38 +38,38 @@ function! g:AddHeader(ftvar)
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/C_header.txt'
 
-   elseif a:ftvar == 'Lisp'
+   elseif a:ftvar ==? 'Lisp'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Lisp_header.txt'
 
-   elseif a:ftvar == 'java'
+   elseif a:ftvar ==? 'java'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/java_header.txt'
 
-   elseif a:ftvar == 'javascript'
+   elseif a:ftvar ==? 'javascript'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/js_header.txt'
 
-   elseif a:ftvar == 'SAS'
+   elseif a:ftvar ==? 'SAS'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/SAS_header.txt'
 
-   elseif a:ftvar == 'TeX'
+   elseif a:ftvar ==? 'TeX'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/TeX_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
 
-   elseif a:ftvar == 'Rnoweb'
+   elseif a:ftvar ==? 'Rnoweb'
 
       let workingdir = "working.dir = \"".expand("%:p:h")."\""
       execute "11,".25."s,#working\.dir \= \"\.\",".workingdir.","
       execute "11,".25."s,#setwd(working.dir),setwd(working.dir),"
 
-   elseif a:ftvar == 'Fortran'
+   elseif a:ftvar ==? 'Fortran'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Fortran_header.txt'
 
-   elseif a:ftvar == 'Rmarkdown'
+   elseif a:ftvar ==? 'Rmarkdown'
 
       execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Rmarkdown_header.txt'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
@@ -85,7 +85,7 @@ function! g:AddHeader(ftvar)
    exe "2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
 endfunction
 
-autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
+"autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
 autocmd bufnewfile *.r,*.R,*.Renviron,*.Rprofile call g:AddHeader('R')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
