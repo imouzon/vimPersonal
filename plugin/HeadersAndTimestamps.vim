@@ -96,7 +96,7 @@ autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
 autocmd bufnewfile *.java call g:AddHeader('java')
 autocmd bufnewfile *.sas call g:AddHeader('SAS')
 autocmd bufnewfile *.tex call g:AddHeader('TeX')
-autocmd bufnewfile *.f,*.for call g:AddHeader('Fotran')
+autocmd bufnewfile *.f,*.for call g:AddHeader('Fortran')
 autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
 
 "Function: g:AddTimestamp() function 
