@@ -89,7 +89,7 @@ endfunction
 
 "autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
-autocmd bufnewfile *.r,*.Renviron,*.Rprofile call g:AddHeader('R')
+autocmd bufnewfile *.R,*.Renviron,*.Rprofile call g:AddHeader('R')
 autocmd bufnewfile *.rnw call g:AddHeader('Rnoweb')
 autocmd bufnewfile *.rmd call g:AddHeader('Rmarkdown')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
@@ -120,7 +120,7 @@ function! g:AddTimestamp(timestamp_newfile)
 endfunction
 
 "set timestamp automatically
-"autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
+autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
 
 "update timestamp automatically
 autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
