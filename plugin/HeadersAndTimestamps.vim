@@ -22,6 +22,7 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
+
    "using ==? for case insensitive comparison for file end: 'r' = 'R', 'c' = 'C', etc.
    
    "R files can be in a package or stand alone
@@ -83,17 +84,19 @@ function! g:AddHeader(ftvar)
   
    "Add file name to the header
    exe "2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
+
 endfunction
 
 "autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
-autocmd bufnewfile *.r,*.R,*.Renviron,*.Rprofile call g:AddHeader('R')
-autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
+autocmd FileType cpp,c call g:AddHeader('C')
+"autocmd bufnewfile *.r,*.R,*.Renviron,*.Rprofile call g:AddHeader('R')
+"autocmd bufnewfile *.rnw,*.Rnw call g:AddHeader('Rnoweb')
+"autocmd bufnewfile *.rmd,*.Rmd call g:AddHeader('Rmarkdown')
+"autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
 autocmd bufnewfile *.java call g:AddHeader('java')
 autocmd bufnewfile *.sas call g:AddHeader('SAS')
 autocmd bufnewfile *.tex call g:AddHeader('TeX')
-autocmd bufnewfile *.rnw,*.Rnw call g:AddHeader('Rnoweb')
-autocmd bufnewfile *.rmd,*.Rmd call g:AddHeader('Rmarkdown')
 autocmd bufnewfile *.f,*.for call g:AddHeader('Fotran')
 autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
 
