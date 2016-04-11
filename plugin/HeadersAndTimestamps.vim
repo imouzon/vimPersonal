@@ -120,7 +120,7 @@ function! g:AddTimestamp(timestamp_newfile)
 endfunction
 
 "set timestamp automatically
-autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
+"autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
 
 "update timestamp automatically
 autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
