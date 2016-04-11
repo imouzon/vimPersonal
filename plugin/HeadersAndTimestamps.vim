@@ -22,58 +22,63 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
-   if a:ftvar == 'R'
+   "using ==? for case insensitive comparison for file end: 'r' = 'R', 'c' = 'C', etc.
+   
+   "R files can be in a package or stand alone
+   if a:ftvar ==? 'R'
+
       "If there is a NAMESPACE file in the parent level, it's an Rdev
       if filereadable(expand('%:p:h:h').'/NAMESPACE')
-         execute 'so ~/.vim/bundle/vimPersonal/headers/Rdev_header.txt'
+         execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Rdev_header.txt'
       else
-         execute 'so ~/.vim/bundle/vimPersonal/headers/R_header.txt'
+         execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/R_header.txt'
       endif
-   endif
 
-   if a:ftvar == 'C'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/C_header.txt'
-   endif
+   elseif a:ftvar ==? 'C'
 
-   if a:ftvar == 'Lisp'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Lisp_header.txt'
-   endif
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/C_header.txt'
 
-   if a:ftvar == 'java'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/java_header.txt'
-   endif
+   elseif a:ftvar == 'Lisp'
 
-   if a:ftvar == 'javascript'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/js_header.txt'
-   endif
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Lisp_header.txt'
 
-   if a:ftvar == 'SAS'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/SAS_header.txt'
-   endif
+   elseif a:ftvar == 'java'
 
-   if a:ftvar == 'TeX'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/TeX_header.txt'
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/java_header.txt'
+
+   elseif a:ftvar == 'javascript'
+
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/js_header.txt'
+
+   elseif a:ftvar == 'SAS'
+
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/SAS_header.txt'
+
+   elseif a:ftvar == 'TeX'
+
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/TeX_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
-   endif
 
-   if a:ftvar == 'Rnoweb'
+   elseif a:ftvar == 'Rnoweb'
+
       let workingdir = "working.dir = \"".expand("%:p:h")."\""
       execute "11,".25."s,#working\.dir \= \"\.\",".workingdir.","
       execute "11,".25."s,#setwd(working.dir),setwd(working.dir),"
-   endif
 
-   if a:ftvar == 'Fortran'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Fortran_header.txt'
-   endif
+   elseif a:ftvar == 'Fortran'
 
-   if a:ftvar == 'Rmarkdown'
-      execute 'so ~/.vim/bundle/vimPersonal/headers/Rmarkdown_header.txt'
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Fortran_header.txt'
+
+   elseif a:ftvar == 'Rmarkdown'
+
+      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Rmarkdown_header.txt'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       let render = 'render("'.expand('%:p').'")'
       let lnumb = line('$')
       execute "20,".lnumb."s,#working.dir \= '\.',".workingdir.','
       execute "20,".lnumb."s,#setwd(working.dir),setwd(working.dir),"
       execute "20,".lnumb."s,render(pathtofile),".render.","
+
    endif
   
    "Add file name to the header
@@ -81,14 +86,14 @@ function! g:AddHeader(ftvar)
 endfunction
 
 autocmd bufnewfile *.dev.R call g:AddHeader('Rdev')
-autocmd bufnewfile *.R,*.Renviron,*.Rprofile call g:AddHeader('R')
+autocmd bufnewfile *.r,*.R,*.Renviron,*.Rprofile call g:AddHeader('R')
 autocmd bufnewfile *.c,*.cpp call g:AddHeader('C')
 autocmd bufnewfile *.lisp,*.lsp call g:AddHeader('Lisp')
 autocmd bufnewfile *.java call g:AddHeader('java')
 autocmd bufnewfile *.sas call g:AddHeader('SAS')
 autocmd bufnewfile *.tex call g:AddHeader('TeX')
-autocmd bufnewfile *.rnw call g:AddHeader('Rnoweb')
-autocmd bufnewfile *.rmd call g:AddHeader('Rmarkdown')
+autocmd bufnewfile *.rnw,*.Rnw call g:AddHeader('Rnoweb')
+autocmd bufnewfile *.rmd,*.Rmd call g:AddHeader('Rmarkdown')
 autocmd bufnewfile *.f,*.for call g:AddHeader('Fotran')
 autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
 
