@@ -102,6 +102,7 @@ autocmd bufnewfile *.sas call g:AddHeader('SAS')
 autocmd bufnewfile *.tex call g:AddHeader('TeX')
 autocmd bufnewfile *.f,*.for call g:AddHeader('Fortran')
 autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
+autocmd bufnewfile *.py,*.python call g:AddHeader('python')
 
 "Function: g:AddTimestamp() function 
 "Adds timestamps when files are saved
