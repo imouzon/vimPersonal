@@ -9,7 +9,7 @@
 "              See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 " ============================================================================
-let available_header_file_extensions = "R Renviron Rprofile c cpp css f for java javascript lisp lsp rnw sas tex vim"
+let available_header_file_extensions = "R Renviron Rprofile c cpp python css f for java javascript lisp lsp rnw sas tex vim"
 
 "Function: g:AddHeader() function 
 "Adds headers to newly created files
