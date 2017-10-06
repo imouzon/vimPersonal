@@ -94,4 +94,3 @@ function! s:transpose()
 endfunction
 
 command! TransposeBuffer call s:transpose()
-
