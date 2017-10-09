@@ -4,7 +4,6 @@
 ;  Purpose:
 ;
 ;  Creation Date:
-;  Last Modified:
 ;  Created By:
 ;------------------------------------LISP-----------------------------------*/
 

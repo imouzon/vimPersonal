@@ -17,19 +17,4 @@ output:
   usefulR::hw_format
 ---
 
-<!--- # (R code (No Results in Document)) -->
-```{r set-parent, echo=FALSE,warning=FALSE,error=FALSE,message=FALSE,cache=TRUE,warning=FALSE,include=FALSE,comment=NA}
-   #set up knitr
-   #devtools::install_github('imouzon/usefulR')
-   library(usefulR)
-
-   #set working directory
-   #working.dir = '.'
-   #setwd(working.dir)
-
-   #compile the document to PDF
-   #if(FALSE) 
-      rmarkdown::render(pathtofile)
-```
-
 .
