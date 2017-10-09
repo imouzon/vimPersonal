@@ -1,3 +1,4 @@
+" ============================================================================
 " File:        HeadersAndTimestamps.vim
 " Description: Vim global plugin that provides some nice functions for Ian
 " Maintainer:  Ian Mouzon <imouzon @ iastate dot edu>
@@ -87,7 +88,7 @@ function! g:AddHeader(ftvar)
    endif
   
    "Add file name to the header
-   exe "2," . 9 . "g/File Name:.*/s//File Name: " .expand("%")
+   exe "2,$g/File Name:.*/s//File Name: " .expand("%")
 
 endfunction
 
@@ -114,18 +115,18 @@ autocmd bufnewfile *.py,*.python call g:AddHeader('python')
 "1 if the no errors were encountered, 0 otherwise
 function! g:AddTimestamp(timestamp_newfile)
    if a:timestamp_newfile == 1
-      execute "2," . 9 . "g/Creation Date:.*/s//Creation Date: " .strftime("%d-%m-%Y")
+      execute "2,$g/Creation Date:.*/s//Creation Date: " .strftime("%d-%m-%Y")
       execute "normal G"
    endif
 
    "Add time saved to file
    execute "normal mp"
-   execute "2," . 9 . "g/Last Modified:.*/s/Last Modified:.*/Last Modified: " .strftime("%c")
+   execute "2,$g/Last Modified:.*/s/Last Modified:.*/Last Modified: " .strftime("%c")
    execute "normal `p"
 endfunction
 
 "set timestamp automatically
-autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.py,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
+"autocmd bufnewfile *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.py,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.sas,*.f,*.for call g:AddTimestamp(1)
 
 "update timestamp automatically
-autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.py,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
+"autocmd Bufwritepre,filewritepre *.css,*.java,*.js,*.javascript,*.c,*.cpp,*.py,*.lsp,*.lisp,*.R,*.Renviron,*.Rprofile,*.tex,*.rnw,*.rmd,*.sas,*.f,*.for  call g:AddTimestamp(0)
