@@ -23,6 +23,18 @@ let available_header_file_extensions = "R Renviron Rprofile c cpp python css f f
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
+   
+   if has('nvim')
+
+      let plug_path = "~/.config/plugged/"
+
+   else
+
+      let plug_path = "~/.vim/plugged/"
+
+   endif
+
+   let header_path = plug_path . "vimPersonal/autoload/headers/"
 
    "using ==? for case insensitive comparison for file end: 'r' = 'R', 'c' = 'C', etc.
    
@@ -31,38 +43,39 @@ function! g:AddHeader(ftvar)
 
       "If there is a NAMESPACE file in the parent level, it's an Rdev
       if filereadable(expand('%:p:h:h').'/NAMESPACE')
-         execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Rdev_header.txt'
+         "execute 'so ' . header_path . 'Rdev_header.txt'
+         execute 'so ' . header_path . 'Rdev_header.txt'
       else
-         execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/R_header.txt'
+         execute 'so ' . header_path . 'R_header.txt'
       endif
 
    elseif a:ftvar ==? 'python'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/python_header.txt'
+      execute 'so ' . header_path . 'python_header.txt'
 
    elseif a:ftvar ==? 'C'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/C_header.txt'
+      execute 'so ' . header_path . 'C_header.txt'
 
    elseif a:ftvar ==? 'Lisp'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Lisp_header.txt'
+      execute 'so ' . header_path . 'Lisp_header.txt'
 
    elseif a:ftvar ==? 'java'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/java_header.txt'
+      execute 'so ' . header_path . 'java_header.txt'
 
    elseif a:ftvar ==? 'javascript'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/js_header.txt'
+      execute 'so ' . header_path . 'js_header.txt'
 
    elseif a:ftvar ==? 'SAS'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/SAS_header.txt'
+      execute 'so ' . header_path . 'SAS_header.txt'
 
    elseif a:ftvar ==? 'TeX'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/TeX_header.txt'
+      execute 'so ' . header_path . 'TeX_header.txt'
       execute "1,".2."g/For LaTeX-Box: root \=/s//For LaTeX-Box: root \= ".expand("%:r").".tex"
 
    elseif a:ftvar ==? 'Rnoweb'
@@ -73,17 +86,21 @@ function! g:AddHeader(ftvar)
 
    elseif a:ftvar ==? 'Fortran'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Fortran_header.txt'
+      execute 'so ' . header_path . 'Fortran_header.txt'
 
    elseif a:ftvar ==? 'Rmarkdown'
 
-      execute 'so ~/.vim/plugged/vimPersonal/autoload/headers/Rmarkdown_header.txt'
+      execute 'so ' . header_path . 'Rmarkdown_header.txt'
       let workingdir = 'working.dir = "'.expand('%:p:h').'"'
       let render = 'render("'.expand('%:p').'")'
       let lnumb = line('$')
       execute "20,".lnumb."s,#working.dir \= '\.',".workingdir.','
       execute "20,".lnumb."s,#setwd(working.dir),setwd(working.dir),"
       execute "20,".lnumb."s,render(pathtofile),".render.","
+
+   elseif a:ftvar ==? "ghissue"
+
+      execute 'so ' . header_path . 'ghissue_header.txt'
 
    endif
   
@@ -104,6 +121,7 @@ autocmd bufnewfile *.tex call g:AddHeader('TeX')
 autocmd bufnewfile *.f,*.for call g:AddHeader('Fortran')
 autocmd bufnewfile *.js,*.javascript call g:AddHeader('javascript')
 autocmd bufnewfile *.py,*.python call g:AddHeader('python')
+autocmd bufnewfile *.issue.md call g:AddHeader("ghissue")
 
 "Function: g:AddTimestamp() function 
 "Adds timestamps when files are saved
