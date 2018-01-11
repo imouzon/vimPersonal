@@ -12,26 +12,22 @@
 " ============================================================================
 let available_header_file_extensions = "R Renviron Rprofile c cpp python css f for java javascript lisp lsp rnw sas tex vim"
 
-"Function: g:AddHeader() function 
-"Adds headers to newly created files
-"
-"Args:
-"ftvar: the type of file being created
-"
-"Returns:
-"1 if the no errors were encountered, 0 otherwise
+function! g:AddPythonHeader()
+
+   if has('nvim')
+      let header_path = plug_path . "vimPersonal/autoload/headers/"
+      let plug_path = "~/.config/nvim/plugged/"
+   else
+      let plug_path = "~/.vim/plugged/"
+   endif
 
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
    
    if has('nvim')
-
-      let plug_path = "~/.config/plugged/"
-
+      let plug_path = "~/.config/nvim/plugged/"
    else
-
       let plug_path = "~/.vim/plugged/"
-
    endif
 
    let header_path = plug_path . "vimPersonal/autoload/headers/"
