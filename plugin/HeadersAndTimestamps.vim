@@ -21,6 +21,8 @@ function! g:AddPythonHeader()
       let plug_path = "~/.vim/plugged/"
    endif
 
+endfunction
+
 "Headers for R, FORTRAN, SAS, C, JAVA, LISP, TeX files
 function! g:AddHeader(ftvar)
    
